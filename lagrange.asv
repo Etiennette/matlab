@@ -1,0 +1,12 @@
+%interpolacion de Lagrange
+function yi=lagrange(x,y,xi)
+yi=zeros(size(xi));
+np1=length(y);
+for i=1:np1   
+    z=ones(size(xi));
+    for j=1:np1
+        if i~=j, z=z.*(xi-x(j))/(x(i)-x(j)); end
+    end
+    yi=yi+z*y(i);
+end
+ return
